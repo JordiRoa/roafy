@@ -1,12 +1,23 @@
-import React from 'react';
-import Track from '../Track/Track'
+import React from "react";
 
-const TrackList = ({tracks}) => {
+import "./TrackList.css";
+
+import Track from "../Track/Track";
+
+const TrackList = (props) => {
   return (
-    <div className="track-list">
-      {tracks.map(track => (
-        <Track key={track.id} track={track} />
-      ))}
+    <div className="TrackList">
+      {props.tracks.map((track) => {
+        return (
+          <Track
+            track={track}
+            key={track.id}
+            onAdd={props.onAdd}
+            isRemoval={props.isRemoval}
+            onRemove={props.onRemove}
+          />
+        );
+      })}
     </div>
   );
 };
